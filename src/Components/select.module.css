@@ -1,0 +1,11 @@
+.maindiv{
+    /* display: flex;
+    justify-content: space-evenly; */
+}
+.maindiv select{
+    width: 100px;
+}
+.btn{
+    border-radius: 5px;
+    font-size: 16px;
+}

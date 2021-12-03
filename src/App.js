@@ -3,6 +3,7 @@ import "./App.css"
 import Select from "./Components/Select";
 import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
+import AddIcon from '@mui/icons-material/Add';
 
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
   const [restore2, setRestore2] = useState([]);
   const [leftPrevious, setleftPrevious] = useState(null);
   const [rightPrevious, setrightPrevious] = useState(null);
- 
+  const [show,setShow] = useState(false)
+//  let store=[]
+// console.log(selectList)
  
 
   //for adding different fields
@@ -122,10 +125,17 @@ function App() {
             />
           </tbody>
         </table>
-
-        <button className="btnn" onClick={addFields}>map new Field</button>
+            <div className="btnDIb">
+        <button className="btnn" onClick={addFields}><span><AddIcon/></span>map new Field</button>
+        <button className="btnn1" onClick={()=> setShow(!show)}>Submit</button>
+        </div>
       </div>
-     
+      
+     {
+       show ? selectList.map((e) =>{
+         return <div className="dataShow" key={e.id}>{JSON.stringify(e)}</div>
+       }):""
+     }
     </div>
   );
 }

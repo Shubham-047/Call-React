@@ -18,13 +18,20 @@ function App() {
 
   const [left, setLeft] = useState(array1);                //for left option
   const [right, setRight] = useState(array2);               //for right option
-  const [restore1, setRestore1] = useState([]);
-  const [restore2, setRestore2] = useState([]);
-  const [leftPrevious, setleftPrevious] = useState(null);
-  const [rightPrevious, setrightPrevious] = useState(null);
-  const [show,setShow] = useState(false)
-//  let store=[]
-// console.log(selectList)
+  const [restore1, setRestore1] = useState([]);                //empty array for storing the leftSelected array 
+  const [restore2, setRestore2] = useState([]);                //empty array for storing the rightSelected array 
+  const [leftPrevious, setleftPrevious] = useState(null);       //for maintaining the previous selected option on left side
+  const [rightPrevious, setrightPrevious] = useState(null);       //for maintaining the previous selected option on right side
+  const [show,setShow] = useState([])
+
+//for showing data
+  const showJsondata = ()=>{
+setShow((prev) =>[
+  ...prev,
+  selectList
+])
+}
+
  
 
   //for adding different fields
@@ -44,11 +51,11 @@ function App() {
       return el.id !== e.target.value;
     });
 
-    const getOption = restore1.find((item) => item.id === e.target.value);
+    const getOption = restore1.find((item) => item.id === e.target.value);   //accessing the left side deleted element in restore1
 
-    const getOptionRight = restore2.find((item) => item.id === e.target.value);
-    setLeft([...left, getOption?.option]);
-    setRight([...right, getOptionRight?.option]);
+    const getOptionRight = restore2.find((item) => item.id === e.target.value);  //accessing the right side deleted element in restore1
+    setLeft([...left, getOption?.option]);                                       //pushing the deleted element in the option list again
+    setRight([...right, getOptionRight?.option]);                                //pushing the deleted element in the option right again
     setSelectList(temp);
   };
 
@@ -59,15 +66,15 @@ function App() {
   //for maintaining the option in right select box
   const handleRightChange = (option, id) => {
     setrightPrevious(
-      selectList.find((item) => item.id === id && item.rightSelect != "Choose")
+      selectList.find((item) => item.id === id && item.rightSelect != "Choose")       //adding the previous right element and pushing to the previous list
     );
-    let rightSide = selectList.map((item) =>
+    let rightSide = selectList.map((item) =>                                       //setting the value of right selectbox
       item.id === id ? { ...item, rightSelect: option } : item
     );
     setSelectList(rightSide);
-    setRestore2([...restore2, { option, id }]);
+    setRestore2([...restore2, { option, id }]);                                   //storing the selected right side option to restore2
 
-    setRight(right.filter((elem) => elem !== option));
+    setRight(right.filter((elem) => elem !== option));                           //filtering out the option which is selected from the option list
   };
 
 
@@ -75,30 +82,30 @@ function App() {
 //for maintaining the option in left select box
   const handleLeftChange = (option, id) => {
     setleftPrevious(
-      selectList.find((item) => item.id === id && item.leftSelect !== "Choose")
+      selectList.find((item) => item.id === id && item.leftSelect !== "Choose")          //adding the previous left element and pushing to the previous list
     );
-    let leftSide = selectList.map((item) =>
+    let leftSide = selectList.map((item) =>                                       //setting the value of left selectbox
       item.id === id ? { ...item, leftSelect: option } : item
     );
 
     setSelectList(leftSide);
-    setRestore1([...restore1, { option, id }]);
+    setRestore1([...restore1, { option, id }]);                                   //storing the selected left side option to restore2
 
-    setLeft(left.filter((element) => element !== option));
+    setLeft(left.filter((element) => element !== option));                           //filtering out the option which is selected from the option list
   };
 
 
 
 
   useEffect(() => {
-    leftPrevious && setLeft([...left, leftPrevious.leftSelect]);
+    leftPrevious && setLeft([...left, leftPrevious.leftSelect]);       //adding the previous left selected array to the left option list again
   }, [leftPrevious]);
 
   
 
 
   useEffect(() => {
-    rightPrevious && setRight([...right, rightPrevious.rightSelect]);
+    rightPrevious && setRight([...right, rightPrevious.rightSelect]);       //adding the previous right selected array to the right option list again
   }, [rightPrevious]);
 
 
@@ -127,14 +134,14 @@ function App() {
         </table>
             <div className="btnDIb">
         <button className="btnn" onClick={addFields}><span><AddIcon/></span>map new Field</button>
-        <button className="btnn1" onClick={()=> setShow(!show)}>Submit</button>
+        <button className="btnn1" onClick={showJsondata}>Submit</button>
         </div>
       </div>
-      
+      {/* For showing the data */}
      {
-       show ? selectList.map((e) =>{
+       show.map((e) =>{
          return <div className="dataShow" key={e.id}>{JSON.stringify(e)}</div>
-       }):""
+       })
      }
     </div>
   );

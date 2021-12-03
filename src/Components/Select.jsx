@@ -13,6 +13,7 @@ export default function Select(props) {
         return (
           <tr key={e.id}>
             <td>
+              {/* left selectBox */}
               <LongMenu
                 onClick={() => props.handleChangeVal(e.id)}
                 handleLeftChange={props.handleLeftChange}
@@ -22,6 +23,7 @@ export default function Select(props) {
               />
             </td>
             <td>
+              {/* right selectBox */}
               <OptionsRight
               handleRightChange={props.handleRightChange}
               optionRight={props.right}

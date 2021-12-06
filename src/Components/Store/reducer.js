@@ -1,19 +1,19 @@
 import { UPDATE_LEFT_OPTION, UPDATE_RIGHT_OPTION } from "./actionTypes";
 
 const initState = {
-  array1: [
-    "hi",
-    "hello",
-    "bye",
-    "sales",
-    "grow",
-    "right",
-    "left",
-    "forward",
-    "backward",
-    "direction",
+  sales: [
+    "name",
+    "Fname",
+    "Lname",
+    "Contact",
+    "city",
+    "place",
+    "age",
+    "Id",
+    "Skill",
+    "Quality",
   ],
-  array2: [
+  call: [
     "DSA",
     "JAVA",
     "Python",

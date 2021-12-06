@@ -6,22 +6,7 @@ import { MdArrowDropDown } from "react-icons/md";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 
-const options = [
-    "None",
-    "Atria",
-    "Callisto",
-    "Dione",
-    "Ganymede",
-    "Hangouts Call",
-    "Luna",
-    "Oberon",
-    "Phobos",
-    "Pyxis",
-    "Sedna",
-    "Titania",
-    "Triton",
-    "Umbriel"
-  ];
+
 
 const ITEM_HEIGHT = 48;
 export default function OptionsRight({handleRightChange,optionRight,id,currentRight}) {
@@ -32,7 +17,9 @@ export default function OptionsRight({handleRightChange,optionRight,id,currentRi
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
- 
+ const closePopup=()=>{
+  
+ }
   const handleBlock = (option) => {
     setAnchorEl(null);
     handleRightChange(option, id);
@@ -56,6 +43,7 @@ export default function OptionsRight({handleRightChange,optionRight,id,currentRi
            display:"flex",
            justifyContent:"space-between"
           }}
+          onClick={closePopup}
         >
           <span>{currentRight}</span><MdArrowDropDown style={{marginLeft:"10px"}}/>
         </div>

@@ -13,12 +13,12 @@ function App() {
     { id: uuidv4(), leftSelect: "Choose", rightSelect: "Choose" },
   ]);
 
- const array1 = useSelector(state => state.array1)
+ const sales = useSelector(state => state.sales)
  
- const array2 = useSelector(state => state.array2)
+ const call = useSelector(state => state.call)
 
-  const [left, setLeft] = useState(array1);                //for left option
-  const [right, setRight] = useState(array2);               //for right option
+  const [left, setLeft] = useState(sales);                //for left option
+  const [right, setRight] = useState(call);               //for right option
   const [restore1, setRestore1] = useState([]);                //empty array for storing the leftSelected array 
   const [restore2, setRestore2] = useState([]);                //empty array for storing the rightSelected array 
   const [leftPrevious, setleftPrevious] = useState(null);       //for maintaining the previous selected option on left side

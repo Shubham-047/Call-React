@@ -6,22 +6,7 @@ import styles from "./optionLeft.module.css"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { MdArrowDropDown } from "react-icons/md";
 
-const options = [
-  "None",
-  "Atria",
-  "Callisto",
-  "Dione",
-  "Ganymede",
-  "Hangouts Call",
-  "Luna",
-  "Oberon",
-  "Phobos",
-  "Pyxis",
-  "Sedna",
-  "Titania",
-  "Triton",
-  "Umbriel"
-];
+
 
 const ITEM_HEIGHT = 48;
 

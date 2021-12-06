@@ -4,6 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import styles from "./optionLeft.module.css"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { MdArrowDropDown } from "react-icons/md";
 
 const options = [
   "None",
@@ -49,13 +50,16 @@ export default function LongMenu({ menu, current, id, handleLeftChange }) {
         onClick={handleClick}
       >
    
-        <div
+   <div
           style={{
-            width: "100px",
+            width: "150px",
             fontSize:"20px",
+            border:"5px",
+            display:"flex",
+            justifyContent:"space-between"
           }}
         >
-          {current} <span><ArrowDropDownIcon/></span>
+          {current} <MdArrowDropDown style={{marginLeft:"10px"}}/>
         </div>
       </button>
       <Menu

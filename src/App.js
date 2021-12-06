@@ -4,6 +4,7 @@ import Select from "./Components/Select";
 import { v4 as uuidv4 } from "uuid";
 import { useSelector } from "react-redux";
 import AddIcon from '@mui/icons-material/Add';
+import { AiOutlinePlus} from "react-icons/ai";
 
 
 function App() {
@@ -25,12 +26,9 @@ function App() {
   const [show,setShow] = useState([])
 
 //for showing data
-  const showJsondata = ()=>{
-setShow((prev) =>[
-  ...prev,
-  selectList
-])
-}
+const showJsondata = ()=>{
+  setShow(selectList)
+  }
 
  
 
@@ -132,17 +130,26 @@ setShow((prev) =>[
             />
           </tbody>
         </table>
-            <div className="btnDIb">
-        <button className="btnn" onClick={addFields}><span><AddIcon/></span>map new Field</button>
+        <div className="btnDIb">
+        <button className="btnn" onClick={addFields}><AiOutlinePlus style={{fontSize:"16px",paddingRight:"5px"}}/>map new Field</button>
         <button className="btnn1" onClick={showJsondata}>Submit</button>
         </div>
       </div>
+      <div className="showTable">
+        <div className="showHead">
+          <div>SalesForce Fields</div>
+          <div>CallHub Field</div>
+        </div>
       {/* For showing the data */}
      {
        show.map((e) =>{
-         return <div className="dataShow" key={e.id}>{JSON.stringify(e)}</div>
+         return <div className="dataShow" key={e.id}>
+           <div className="showLeft">{e.leftSelect === "Choose" ? "" : e.leftSelect === "" ? "" : e.leftSelect}</div>
+           <div className="showRight">{e.rightSelect === "Choose" ? "" : e.rightSelect === "" ? "" : e.rightSelect}</div>
+         </div>
        })
      }
+    </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { MdArrowDropDown } from "react-icons/md";
 
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
@@ -49,12 +50,14 @@ export default function OptionsRight({handleRightChange,optionRight,id,currentRi
         
         <div
           style={{
-            width: "100px",
+            width: "150px",
             fontSize:"20px",
-           
+           border:"5px",
+           display:"flex",
+           justifyContent:"space-between"
           }}
         >
-          {currentRight} <span><ArrowDropDownIcon/></span>
+          <span>{currentRight}</span><MdArrowDropDown style={{marginLeft:"10px"}}/>
         </div>
       </button>
       <Menu

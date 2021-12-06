@@ -37,44 +37,78 @@
   }
 }
 .display{
-  width: 60%;
-  margin-right: 100px;
+  width: 40%;
+  margin: auto;
   
  
 }
 table{
-  width: 60%;
+  width: 100%;
   margin: auto;
   border: 1px solid;
+  margin-bottom: 50px;
 }
 .head{
  width: 250px;
-  
+ font-size: 20px;
 }
 
+.btnDIb{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
 
 .btnn{
-  margin-top: 100px;
   border-radius: 5px;
   font-size: 20px;
-  margin-left: -300px;
   border: 2px dotted skyblue;
   text-align: center;
   align-items: center;
   background-color: white;
- 
 }
+
 .btnn1{
-  
   background-color: blue;
   color: white;
   border-radius: 5px;
   font-size: 20px;
-  margin-bottom: 50px;
 }
+
+.showTable{
+  width: 30%;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid;
+}
+
+.showHead{
+  width: 100%;
+  display: flex;
+ 
+}
+
+.showHead div{
+  font-size: 20px;
+  font-weight: 700;
+  width: 50%;
+  text-align: center;
+  border: 1px solid;
+  padding: 5px;
+}
+
+
+
 .dataShow{
   font-size: 20px;
-  width: 60%;
-  margin: auto;
+ width: 100%;
+ display: flex;
   
+}
+.dataShow div{
+  font-size: 20px;
+  font-weight: 400;
+  width: 50%;
+  text-align: center;
 }
